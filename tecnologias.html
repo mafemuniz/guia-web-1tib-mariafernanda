@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore as principais tecnologias de desenvolvimento web">
+    <title>Tecnologias Web - Guia Completo</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="Página Inicial do Guia Web">
+                <h1>Guia Web</h1>
+            </a>
+            
+            <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav id="main-nav" class="main-nav" aria-label="Menu principal">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="tecnologias.html" aria-current="page">Tecnologias</a></li>
+                    <li><a href="boas-praticas.html">Boas Práticas</a></li>
+                    <li><a href="fluxo.html">Fluxo de Trabalho</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tech-main">
+        <section class="filters-section" aria-labelledby="filters-title">
+            <h2 id="filters-title" class="sr-only">Filtros de Tecnologias</h2>
+            
+            <div class="search-container">
+                <input type="search" 
+                       id="tech-search" 
+                       class="search-input" 
+                       placeholder="Buscar tecnologias..." 
+                       aria-label="Buscar tecnologias">
+            </div>
+
+            <div class="filter-buttons" role="group" aria-label="Filtrar por categoria">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="frontend">Front-end</button>
+                <button class="filter-btn" data-filter="backend">Back-end</button>
+                <button class="filter-btn" data-filter="database">Bancos de Dados</button>
+                <button class="filter-btn" data-filter="devops">DevOps/Deploy</button>
+                <button class="filter-btn" data-filter="testing">Testes</button>
+            </div>
+        </section>
+
+        <section class="technologies-grid" aria-label="Lista de Tecnologias">
+            <!-- React -->
+            <article class="tech-card" data-category="frontend" data-level="intermediario">
+                <h3>React</h3>
+                <p class="tech-description">Biblioteca JavaScript para construção de interfaces de usuário interativas e reativas.</p>
+                <div class="tech-details">
+                    <div class="pros-cons">
+                        <h4>Prós:</h4>
+                        <ul>
+                            <li>Componentes reutilizáveis</li>
+                            <li>Grande ecossistema</li>
+                        </ul>
+                        <h4>Contras:</h4>
+                        <ul>
+                            <li>Curva de aprendizado</li>
+                            <li>Bundle size pode ser grande</li>
+                        </ul>
+                    </div>
+                    <p class="avoid-when">Evitar em: Projetos pequenos sem interatividade complexa</p>
+                    <div class="tech-footer">
+                        <span class="tech-level">Intermediário</span>
+                        <a href="https://reactjs.org" class="tech-link" target="_blank" rel="noopener noreferrer">Site Oficial</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Vue -->
+            <article class="tech-card" data-category="frontend" data-level="basico">
+                <h3>Vue.js</h3>
+                <p class="tech-description">Framework progressivo para construção de interfaces de usuário.</p>
+                <div class="tech-details">
+                    <div class="pros-cons">
+                        <h4>Prós:</h4>
+                        <ul>
+                            <li>Fácil de aprender</li>
+                            <li>Documentação excelente</li>
+                        </ul>
+                        <h4>Contras:</h4>
+                        <ul>
+                            <li>Comunidade menor</li>
+                            <li>Menos vagas no mercado</li>
+                        </ul>
+                    </div>
+                    <p class="avoid-when">Evitar em: Projetos que precisam de grande suporte empresarial</p>
+                    <div class="tech-footer">
+                        <span class="tech-level">Básico</span>
+                        <a href="https://vuejs.org" class="tech-link" target="_blank" rel="noopener noreferrer">Site Oficial</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Angular -->
+            <article class="tech-card" data-category="frontend" data-level="avancado">
+                <h3>Angular</h3>
+                <p class="tech-description">Framework completo para desenvolvimento de aplicações web.</p>
+                <div class="tech-details">
+                    <div class="pros-cons">
+                        <h4>Prós:</h4>
+                        <ul>
+                            <li>Framework completo</li>
+                            <li>Forte tipagem (TypeScript)</li>
+                        </ul>
+                        <h4>Contras:</h4>
+                        <ul>
+                            <li>Complexidade alta</li>
+                            <li>Verboso</li>
+                        </ul>
+                    </div>
+                    <p class="avoid-when">Evitar em: Projetos pequenos ou médios sem complexidade</p>
+                    <div class="tech-footer">
+                        <span class="tech-level">Avançado</span>
+                        <a href="https://angular.io" class="tech-link" target="_blank" rel="noopener noreferrer">Site Oficial</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Node.js -->
+            <article class="tech-card" data-category="backend" data-level="intermediario">
+                <h3>Node.js</h3>
+                <p class="tech-description">Ambiente de execução JavaScript do lado do servidor.</p>
+                <div class="tech-details">
+                    <div class="pros-cons">
+                        <h4>Prós:</h4>
+                        <ul>
+                            <li>Mesma linguagem front/back</li>
+                            <li>Grande ecossistema npm</li>
+                        </ul>
+                        <h4>Contras:</h4>
+                        <ul>
+                            <li>Callback hell</li>
+                            <li>CPU-bound tasks</li>
+                        </ul>
+                    </div>
+                    <p class="avoid-when">Evitar em: Processamento pesado de CPU</p>
+                    <div class="tech-footer">
+                        <span class="tech-level">Intermediário</span>
+                        <a href="https://nodejs.org" class="tech-link" target="_blank" rel="noopener noreferrer">Site Oficial</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Django -->
+            <article class="tech-card" data-category="backend" data-level="intermediario">
+                <h3>Django</h3>
+                <p class="tech-description">Framework web Python com bateria incluída.</p>
+                <div class="tech-details">
+                    <div class="pros-cons">
+                        <h4>Prós:</h4>
+                        <ul>
+                            <li>Admin automático</li>
+                            <li>ORM poderoso</li>
+                        </ul>
+                        <h4>Contras:</h4>
+                        <ul>
+                            <li>Monolítico</li>
+                            <li>Menos flexível</li>
+                        </ul>
+                    </div>
+                    <p class="avoid-when">Evitar em: Microsserviços ou APIs simples</p>
+                    <div class="tech-footer">
+                        <span class="tech-level">Intermediário</span>
+                        <a href="https://www.djangoproject.com" class="tech-link" target="_blank" rel="noopener noreferrer">Site Oficial</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Spring -->
+            <article class="tech-card" data-category="backend" data-level="avancado">
+                <h3>Spring</h3>
+                <p class="tech-description">Framework Java para desenvolvimento de aplicações empresariais.</p>
+                <div class="tech-details">
+                    <div class="pros-cons">
+                        <h4>Prós:</h4>
+                        <ul>
+                            <li>Robusto e maduro</li>
+                            <li>Suporte empresarial</li>
+                        </ul>
+                        <h4>Contras:</h4>
+                        <ul>
+                            <li>Complexo para iniciantes</li>
+                            <li>Configuração pesada</li>
+                        </ul>
+                    </div>
+                    <p class="avoid-when">Evitar em: Projetos pequenos ou startups iniciais</p>
+                    <div class="tech-footer">
+                        <span class="tech-level">Avançado</span>
+                        <a href="https://spring.io" class="tech-link" target="_blank" rel="noopener noreferrer">Site Oficial</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- MySQL -->
+            <article class="tech-card" data-category="database" data-level="basico">
+                <h3>MySQL</h3>
+                <p class="tech-description">Sistema de gerenciamento de banco de dados relacional.</p>
+                <div class="tech-details">
+                    <div class="pros-cons">
+                        <h4>Prós:</h4>
+                        <ul>
+                            <li>Fácil de usar</li>
+                            <li>Amplamente suportado</li>
+                        </ul>
+                        <h4>Contras:</h4>
+                        <ul>
+                            <li>Menos recursos</li>
+                            <li>Escalabilidade limitada</li>
+                        </ul>
+                    </div>
+                    <p class="avoid-when">Evitar em: Alta escalabilidade ou dados não estruturados</p>
+                    <div class="tech-footer">
+                        <span class="tech-level">Básico</span>
+                        <a href="https://www.mysql.com" class="tech-link" target="_blank" rel="noopener noreferrer">Site Oficial</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PostgreSQL -->
+            <article class="tech-card" data-category="database" data-level="intermediario">
+                <h3>PostgreSQL</h3>
+                <p class="tech-description">Sistema de banco de dados relacional avançado e extensível.</p>
+                <div class="tech-details">
+                    <div class="pros-cons">
+                        <h4>Prós:</h4>
+                        <ul>
+                            <li>Recursos avançados</li>
+                            <li>Extensível</li>
+                        </ul>
+                        <h4>Contras:</h4>
+                        <ul>
+                            <li>Mais complexo</li>
+                            <li>Recursos de hardware</li>
+                        </ul>
+                    </div>
+                    <p class="avoid-when">Evitar em: Aplicações simples sem necessidade de recursos avançados</p>
+                    <div class="tech-footer">
+                        <span class="tech-level">Intermediário</span>
+                        <a href="https://www.postgresql.org" class="tech-link" target="_blank" rel="noopener noreferrer">Site Oficial</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- MongoDB -->
+            <article class="tech-card" data-category="database" data-level="intermediario">
+                <h3>MongoDB</h3>
+                <p class="tech-description">Banco de dados NoSQL orientado a documentos.</p>
+                <div class="tech-details">
+                    <div class="pros-cons">
+                        <h4>Prós:</h4>
+                        <ul>
+                            <li>Flexibilidade de schema</li>
+                            <li>Escalabilidade horizontal</li>
+                        </ul>
+                        <h4>Contras:</h4>
+                        <ul>
+                            <li>Sem ACID por padrão</li>
+                            <li>Uso de memória alto</li>
+                        </ul>
+                    </div>
+                    <p class="avoid-when">Evitar em: Dados altamente relacionais ou transacionais</p>
+                    <div class="tech-footer">
+                        <span class="tech-level">Intermediário</span>
+                        <a href="https://www.mongodb.com" class="tech-link" target="_blank" rel="noopener noreferrer">Site Oficial</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Docker -->
+            <article class="tech-card" data-category="devops" data-level="intermediario">
+                <h3>Docker</h3>
+                <p class="tech-description">Plataforma de containerização de aplicações.</p>
+                <div class="tech-details">
+                    <div class="pros-cons">
+                        <h4>Prós:</h4>
+                        <ul>
+                            <li>Ambientes isolados</li>
+                            <li>Fácil distribuição</li>
+                        </ul>
+                        <h4>Contras:</h4>
+                        <ul>
+                            <li>Overhead de recursos</li>
+                            <li>Complexidade inicial</li>
+                        </ul>
+                    </div>
+                    <p class="avoid-when">Evitar em: Aplicações muito pequenas ou monolíticas simples</p>
+                    <div class="tech-footer">
+                        <span class="tech-level">Intermediário</span>
+                        <a href="https://www.docker.com" class="tech-link" target="_blank" rel="noopener noreferrer">Site Oficial</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Jest -->
+            <article class="tech-card" data-category="testing" data-level="basico">
+                <h3>Jest</h3>
+                <p class="tech-description">Framework de testes JavaScript com foco em simplicidade.</p>
+                <div class="tech-details">
+                    <div class="pros-cons">
+                        <h4>Prós:</h4>
+                        <ul>
+                            <li>Configuração zero</li>
+                            <li>Snapshots testing</li>
+                        </ul>
+                        <h4>Contras:</h4>
+                        <ul>
+                            <li>Mais lento que outros</li>
+                            <li>Mocks complexos</li>
+                        </ul>
+                    </div>
+                    <p class="avoid-when">Evitar em: Testes E2E ou de performance</p>
+                    <div class="tech-footer">
+                        <span class="tech-level">Básico</span>
+                        <a href="https://jestjs.io" class="tech-link" target="_blank" rel="noopener noreferrer">Site Oficial</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Cypress -->
+            <article class="tech-card" data-category="testing" data-level="intermediario">
+                <h3>Cypress</h3>
+                <p class="tech-description">Framework moderno para testes E2E.</p>
+                <div class="tech-details">
+                    <div class="pros-cons">
+                        <h4>Prós:</h4>
+                        <ul>
+                            <li>Debug visual</li>
+                            <li>Testes estáveis</li>
+                        </ul>
+                        <h4>Contras:</h4>
+                        <ul>
+                            <li>Apenas Chromium</li>
+                            <li>Recursos de memória</li>
+                        </ul>
+                    </div>
+                    <p class="avoid-when">Evitar em: Testes unitários ou de API simples</p>
+                    <div class="tech-footer">
+                        <span class="tech-level">Intermediário</span>
+                        <a href="https://www.cypress.io" class="tech-link" target="_blank" rel="noopener noreferrer">Site Oficial</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Modal -->
+        <div id="tech-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Fechar modal">&times;</button>
+                <h2 id="modal-title"></h2>
+                <div class="modal-body">
+                    <h3>Quando escolher?</h3>
+                    <div id="modal-description"></div>
+                    <div id="modal-bullets"></div>
+                    <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="modal-link">Site Oficial</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <nav class="footer-nav" aria-label="Menu do rodapé">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="tecnologias.html">Tecnologias</a></li>
+                <li><a href="boas-praticas.html">Boas Práticas</a></li>
+                <li><a href="fluxo.html">Fluxo de Trabalho</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+            </ul>
+        </nav>
+        <p class="credits">&copy; 2025 Guia Web. Desenvolvido por Maria Fernanda.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

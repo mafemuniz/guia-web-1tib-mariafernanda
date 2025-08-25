@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guia de boas práticas para desenvolvimento web moderno">
+    <title>Boas Práticas - Guia Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="Página Inicial do Guia Web">
+                <h1>Guia Web</h1>
+            </a>
+            
+            <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav id="main-nav" class="main-nav" aria-label="Menu principal">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="tecnologias.html">Tecnologias</a></li>
+                    <li><a href="boas-praticas.html" aria-current="page">Boas Práticas</a></li>
+                    <li><a href="fluxo.html">Fluxo de Trabalho</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="practices-main">
+        <div class="progress-container" aria-label="Progresso geral">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 0%"></div>
+            </div>
+            <p class="progress-text">0% concluído</p>
+        </div>
+
+        <div class="accordion">
+            <!-- Semântica & Acessibilidade -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="section-1">
+                    <h2>1. Semântica & Acessibilidade</h2>
+                    <span class="accordion-icon" aria-hidden="true"></span>
+                </button>
+                <div id="section-1" class="accordion-content" hidden>
+                    <div class="content-wrapper">
+                        <ul class="practice-list">
+                            <li>Use tags HTML5 semânticas para estruturar seu conteúdo adequadamente</li>
+                            <li>Adicione atributos ARIA quando necessário para melhorar a acessibilidade</li>
+                            <li>Mantenha uma hierarquia clara de títulos (h1-h6)</li>
+                            <li>Forneça textos alternativos descritivos para imagens</li>
+                        </ul>
+
+                        <div class="code-example">
+                            <pre><code>&lt;header role="banner"&gt;
+  &lt;nav role="navigation" aria-label="Menu principal"&gt;
+    &lt;!-- Navegação aqui --&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+&lt;main role="main"&gt;
+  &lt;article&gt;
+    &lt;h1&gt;Título Principal&lt;/h1&gt;
+    &lt;img src="foto.jpg" alt="Descrição detalhada da imagem"&gt;
+  &lt;/article&gt;
+&lt;/main&gt;</code></pre>
+                        </div>
+
+                        <div class="checklist">
+                            <h3>Sua Checklist:</h3>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="semantic-1">
+                                <span>Utilizei tags semânticas HTML5</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="semantic-2">
+                                <span>Adicionei atributos ARIA necessários</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="semantic-3">
+                                <span>Mantive hierarquia de títulos correta</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="semantic-4">
+                                <span>Adicionei alt text em todas as imagens</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Responsividade -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="section-2">
+                    <h2>2. Responsividade</h2>
+                    <span class="accordion-icon" aria-hidden="true"></span>
+                </button>
+                <div id="section-2" class="accordion-content" hidden>
+                    <div class="content-wrapper">
+                        <ul class="practice-list">
+                            <li>Utilize unidades relativas (rem, em, %) em vez de pixels fixos</li>
+                            <li>Implemente um design mobile-first</li>
+                            <li>Use media queries para ajustar o layout em diferentes breakpoints</li>
+                            <li>Garanta que imagens são responsivas e otimizadas</li>
+                        </ul>
+
+                        <div class="code-example">
+                            <pre><code>/* Abordagem Mobile First */
+.container {
+  width: 100%;
+  padding: 1rem;
+}
+
+/* Tablet e acima */
+@media (min-width: 768px) {
+  .container {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1140px;
+  }
+}</code></pre>
+                        </div>
+
+                        <div class="checklist">
+                            <h3>Sua Checklist:</h3>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="responsive-1">
+                                <span>Implementei design mobile-first</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="responsive-2">
+                                <span>Usei unidades relativas</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="responsive-3">
+                                <span>Adicionei media queries adequadas</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="responsive-4">
+                                <span>Otimizei imagens responsivas</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Organização de CSS -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="section-3">
+                    <h2>3. Organização de CSS</h2>
+                    <span class="accordion-icon" aria-hidden="true"></span>
+                </button>
+                <div id="section-3" class="accordion-content" hidden>
+                    <div class="content-wrapper">
+                        <ul class="practice-list">
+                            <li>Use uma metodologia de nomenclatura (BEM, SMACSS, etc)</li>
+                            <li>Organize o CSS por componentes</li>
+                            <li>Evite especificidade excessiva de seletores</li>
+                            <li>Mantenha a consistência usando variáveis CSS</li>
+                        </ul>
+
+                        <div class="code-example">
+                            <pre><code>/* Variáveis CSS */
+:root {
+  --primary-color: #3498db;
+  --spacing-unit: 1rem;
+}
+
+/* Componente usando BEM */
+.card {
+  padding: var(--spacing-unit);
+}
+
+.card__title {
+  color: var(--primary-color);
+}
+
+.card__button--primary {
+  background: var(--primary-color);
+}</code></pre>
+                        </div>
+
+                        <div class="checklist">
+                            <h3>Sua Checklist:</h3>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="css-1">
+                                <span>Adotei metodologia de nomenclatura</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="css-2">
+                                <span>Organizei CSS por componentes</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="css-3">
+                                <span>Evitei especificidade excessiva</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="css-4">
+                                <span>Usei variáveis CSS</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="section-4">
+                    <h2>4. Performance</h2>
+                    <span class="accordion-icon" aria-hidden="true"></span>
+                </button>
+                <div id="section-4" class="accordion-content" hidden>
+                    <div class="content-wrapper">
+                        <ul class="practice-list">
+                            <li>Otimize e comprima imagens</li>
+                            <li>Minimize requisições HTTP</li>
+                            <li>Use lazy loading para imagens e conteúdo</li>
+                            <li>Minimize e comprima arquivos CSS/JS</li>
+                        </ul>
+
+                        <div class="code-example">
+                            <pre><code>&lt;!-- Lazy loading de imagens --&gt;
+&lt;img 
+  src="placeholder.jpg"
+  data-src="imagem-real.jpg"
+  loading="lazy"
+  alt="Descrição"
+&gt;
+
+&lt;!-- Preload de recursos críticos --&gt;
+&lt;link 
+  rel="preload" 
+  href="estilo-critico.css" 
+  as="style"
+&gt;</code></pre>
+                        </div>
+
+                        <div class="checklist">
+                            <h3>Sua Checklist:</h3>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="perf-1">
+                                <span>Otimizei todas as imagens</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="perf-2">
+                                <span>Minimizei requisições HTTP</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="perf-3">
+                                <span>Implementei lazy loading</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="perf-4">
+                                <span>Comprimi arquivos estáticos</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Git -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="section-5">
+                    <h2>5. Versionamento (Git)</h2>
+                    <span class="accordion-icon" aria-hidden="true"></span>
+                </button>
+                <div id="section-5" class="accordion-content" hidden>
+                    <div class="content-wrapper">
+                        <ul class="practice-list">
+                            <li>Use mensagens de commit descritivas e padronizadas</li>
+                            <li>Crie branches para novas features</li>
+                            <li>Faça commits pequenos e frequentes</li>
+                            <li>Mantenha o repositório organizado com .gitignore</li>
+                        </ul>
+
+                        <div class="code-example">
+                            <pre><code># Boas mensagens de commit
+feat: adiciona funcionalidade de login
+fix: corrige bug no formulário de contato
+docs: atualiza README com novas instruções
+
+# .gitignore básico
+node_modules/
+.env
+.DS_Store
+*.log</code></pre>
+                        </div>
+
+                        <div class="checklist">
+                            <h3>Sua Checklist:</h3>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="git-1">
+                                <span>Padronizei mensagens de commit</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="git-2">
+                                <span>Uso branches para features</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="git-3">
+                                <span>Faço commits frequentes</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="git-4">
+                                <span>Configurei .gitignore</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="section-6">
+                    <h2>6. Boas Práticas de JavaScript</h2>
+                    <span class="accordion-icon" aria-hidden="true"></span>
+                </button>
+                <div id="section-6" class="accordion-content" hidden>
+                    <div class="content-wrapper">
+                        <ul class="practice-list">
+                            <li>Use const e let em vez de var</li>
+                            <li>Implemente tratamento de erros adequado</li>
+                            <li>Evite poluição do escopo global</li>
+                            <li>Prefira funções puras e imutabilidade</li>
+                        </ul>
+
+                        <div class="code-example">
+                            <pre><code>// Módulo com escopo isolado
+const FormValidation = (() => {
+  const validateEmail = (email) => {
+    try {
+      return email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+    } catch (error) {
+      console.error('Erro na validação:', error);
+      return false;
+    }
+  };
+
+  return { validateEmail };
+})();</code></pre>
+                        </div>
+
+                        <div class="checklist">
+                            <h3>Sua Checklist:</h3>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="js-1">
+                                <span>Uso const/let apropriadamente</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="js-2">
+                                <span>Implementei try/catch</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="js-3">
+                                <span>Evito variáveis globais</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="js-4">
+                                <span>Uso funções puras</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <nav class="footer-nav" aria-label="Menu do rodapé">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="tecnologias.html">Tecnologias</a></li>
+                <li><a href="boas-praticas.html">Boas Práticas</a></li>
+                <li><a href="fluxo.html">Fluxo de Trabalho</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+            </ul>
+        </nav>
+        <p class="credits">&copy; 2025 Guia Web. Desenvolvido por Maria Fernanda.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

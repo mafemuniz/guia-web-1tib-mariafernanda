@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guia completo sobre desenvolvimento web, HTML, CSS e JavaScript">
+    <title>Guia Web - Aprenda Desenvolvimento Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="Página Inicial do Guia Web">
+                <h1>Guia Web</h1>
+            </a>
+            
+            <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav id="main-nav" class="main-nav" aria-label="Menu principal">
+                <ul>
+                    <li><a href="index.html" aria-current="page">Início</a></li>
+                    <li><a href="tecnologias.html">Tecnologias</a></li>
+                    <li><a href="boas-praticas.html">Boas Práticas</a></li>
+                    <li><a href="fluxo.html">Fluxo de Trabalho</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <h2 id="hero-title">Aprenda Desenvolvimento Web do Zero</h2>
+                <p>Descubra o poder do HTML, CSS e JavaScript para criar sites incríveis. 
+                   Um guia completo para iniciantes com exemplos práticos e dicas essenciais.</p>
+                <a href="#tecnologias" class="cta-button" role="button">Começar</a>
+            </div>
+        </section>
+
+        <section id="tecnologias" class="tech-section" aria-labelledby="tech-title">
+            <h2 id="tech-title">O que é HTML, CSS e JavaScript?</h2>
+            
+            <div class="cards-container">
+                <article class="tech-card">
+                    <h3>HTML</h3>
+                    <p>HTML é a linguagem de marcação que define a estrutura do seu conteúdo web.</p>
+                    <div class="code-example">
+                        <pre><code>&lt;article&gt;
+    &lt;h1&gt;Título&lt;/h1&gt;
+    &lt;p&gt;Conteúdo&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+                    </div>
+                    <p class="use-case">Use para: Estruturar conteúdo web, criar links, formulários e elementos semânticos.</p>
+                </article>
+
+                <article class="tech-card">
+                    <h3>CSS</h3>
+                    <p>CSS é a linguagem de estilização que controla a apresentação visual dos elementos HTML.</p>
+                    <div class="code-example">
+                        <pre><code>.card {
+    color: #333;
+    padding: 1rem;
+    border-radius: 8px;
+}</code></pre>
+                    </div>
+                    <p class="use-case">Use para: Estilizar elementos, criar layouts e adicionar animações.</p>
+                </article>
+
+                <article class="tech-card">
+                    <h3>JavaScript</h3>
+                    <p>JavaScript é a linguagem de programação que adiciona interatividade às páginas web.</p>
+                    <div class="code-example">
+                        <pre><code>button.addEventListener(
+    'click', 
+    () => alert('Olá!')
+);</code></pre>
+                    </div>
+                    <p class="use-case">Use para: Criar interações, validar formulários e atualizar conteúdo dinamicamente.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <nav class="footer-nav" aria-label="Menu do rodapé">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="tecnologias.html">Tecnologias</a></li>
+                <li><a href="boas-praticas.html">Boas Práticas</a></li>
+                <li><a href="fluxo.html">Fluxo de Trabalho</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+            </ul>
+        </nav>
+        <p class="credits">&copy; 2025 Guia Web. Desenvolvido por Maria Fernanda.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
