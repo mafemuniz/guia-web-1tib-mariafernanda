@@ -3,13 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fluxo de Trabalho</title>
+    <meta name="description" content="Fluxo de trabalho no desenvolvimento web">
+    <title>Fluxo de Trabalho - Guia Web</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .flowchart-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            overflow-x: auto;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .svg-flowchart {
+            width: 100%;
+            height: auto;
+            min-height: 200px;
+            padding: 20px;
+        }
+
+        .flowchart-step {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .flowchart-step {
+            fill: white;
+            stroke: #4a90e2;
+            stroke-width: 2;
+        }
+
+        .flowchart-step:hover {
+            fill: #e3f2fd;
+        }
+
+        .flowchart-text {
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            fill: #333;
+            pointer-events: none;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: #333;
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            max-width: 300px;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .tooltip h4 {
+            margin: 0 0 0.5rem 0;
+            color: #4a90e2;
+        }
+
+        .tooltip ul {
+            margin: 0.5rem 0;
+            padding-left: 1.2rem;
+        }
+
+        /* Timeline styles */
+        .timeline {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem 1rem;
+            position: relative;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #4a90e2;
+            z-index: 0;
+        }
+
+        .timeline-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            gap: 2rem;
+            padding: 0 40px;
+        }
+
+        .timeline-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            flex: 1;
+        }
+
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: #4a90e2;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            margin: 1rem 0;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+        }
+
+        .timeline-label {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #333;
+            transform: rotate(-45deg);
+            transform-origin: center;
+            position: absolute;
+            top: 60px;
+            width: 120px;
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Fluxo de Trabalho</h1>
-        <nav>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="Página Inicial do Guia Web">
+                <h1>Guia Web</h1>
+            </a>
+            
+            <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav id="main-nav" class="main-nav" aria-label="Menu principal">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="tecnologias.html">Tecnologias</a></li>
+                    <li><a href="boas-praticas.html">Boas Práticas</a></li>
+                    <li><a href="fluxo.html" aria-current="page">Fluxo de Trabalho</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="flowchart-container">
+            <h2>Fluxo de Desenvolvimento Web</h2>
+            <svg class="svg-flowchart" viewBox="0 0 1000 200">
+                <!-- Retângulos das etapas -->
+                <g id="steps"></g>
+                <!-- Setas de conexão -->
+                <g id="arrows"></g>
+                <!-- Textos -->
+                <g id="texts"></g>
+            </svg>
+            <div id="tooltip" class="tooltip"></div>
+        </section>
+
+        <section class="timeline">
+            <h2>Linha do Tempo do Desenvolvimento</h2>
+            <div class="timeline-container">
+                <div class="timeline-step">
+                    <span class="timeline-label">Descoberta</span>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-step">
+                    <span class="timeline-label">Requisitos</span>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-step">
+                    <span class="timeline-label">Protótipo</span>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-step">
+                    <span class="timeline-label">Design</span>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-step">
+                    <span class="timeline-label">Implementação</span>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-step">
+                    <span class="timeline-label">Testes</span>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-step">
+                    <span class="timeline-label">Preparação de Deploy</span>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-step">
+                    <span class="timeline-label">Publicação</span>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-step">
+                    <span class="timeline-label">Monitoramento/ Manutenção</span>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <nav class="footer-nav" aria-label="Menu do rodapé">
             <ul>
                 <li><a href="index.html">Início</a></li>
                 <li><a href="tecnologias.html">Tecnologias</a></li>
@@ -18,16 +220,252 @@
                 <li><a href="quiz.html">Quiz</a></li>
             </ul>
         </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Fluxo de Trabalho no Desenvolvimento Web</h2>
-            <!-- Conteúdo sobre fluxo de trabalho aqui -->
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Guia Web</p>
+        <p class="credits">&copy; 2025 Guia Web. Desenvolvido por Maria Fernanda.</p>
     </footer>
+
     <script src="js/app.js"></script>
+    <script>
+        // Dados das etapas do fluxo de trabalho
+        const workflowSteps = [
+            {
+                id: 'descoberta',
+                title: 'Descoberta',
+                entregas: [
+                    'Análise do mercado',
+                    'Entrevistas com stakeholders',
+                    'Definição do escopo inicial'
+                ],
+                riscos: [
+                    'Expectativas mal alinhadas',
+                    'Escopo mal definido',
+                    'Falta de envolvimento dos stakeholders'
+                ]
+            },
+            {
+                id: 'requisitos',
+                title: 'Requisitos',
+                entregas: [
+                    'Documento de requisitos',
+                    'User stories',
+                    'Critérios de aceitação'
+                ],
+                riscos: [
+                    'Requisitos ambíguos',
+                    'Mudanças frequentes',
+                    'Falta de detalhamento'
+                ]
+            },
+            {
+                id: 'prototipo',
+                title: 'Protótipo',
+                entregas: [
+                    'Wireframes',
+                    'Mockups interativos',
+                    'Feedback dos usuários'
+                ],
+                riscos: [
+                    'Design não intuitivo',
+                    'Falta de teste com usuários',
+                    'Protótipo muito complexo'
+                ]
+            },
+            {
+                id: 'design',
+                title: 'Design',
+                entregas: [
+                    'Design system',
+                    'Layouts finalizados',
+                    'Guia de estilos'
+                ],
+                riscos: [
+                    'Inconsistência visual',
+                    'Problemas de acessibilidade',
+                    'Falta de responsividade'
+                ]
+            },
+            {
+                id: 'implementacao',
+                title: 'Implementação',
+                entregas: [
+                    'Código fonte',
+                    'Documentação técnica',
+                    'Builds de desenvolvimento'
+                ],
+                riscos: [
+                    'Débito técnico',
+                    'Bugs críticos',
+                    'Atrasos no desenvolvimento'
+                ]
+            },
+            {
+                id: 'testes',
+                title: 'Testes',
+                entregas: [
+                    'Relatórios de testes',
+                    'Casos de teste',
+                    'Correções de bugs'
+                ],
+                riscos: [
+                    'Cobertura insuficiente',
+                    'Testes não automatizados',
+                    'Bugs não detectados'
+                ]
+            },
+            {
+                id: 'prepDeploy',
+                title: 'Preparação de Deploy',
+                entregas: [
+                    'Ambiente de staging',
+                    'Scripts de deploy',
+                    'Documentação de deploy'
+                ],
+                riscos: [
+                    'Configurações incorretas',
+                    'Problemas de ambiente',
+                    'Falta de rollback'
+                ]
+            },
+            {
+                id: 'publicacao',
+                title: 'Publicação',
+                entregas: [
+                    'Sistema em produção',
+                    'Checklist de deploy',
+                    'Backups'
+                ],
+                riscos: [
+                    'Downtime não planejado',
+                    'Problemas de performance',
+                    'Falhas de segurança'
+                ]
+            },
+            {
+                id: 'monitoramento',
+                title: 'Monitoramento/Manutenção',
+                entregas: [
+                    'Relatórios de performance',
+                    'Logs de monitoramento',
+                    'Atualizações de segurança'
+                ],
+                riscos: [
+                    'Falta de monitoramento',
+                    'Tempo de resposta alto',
+                    'Vulnerabilidades'
+                ]
+            }
+        ];
+
+        // Configuração do SVG
+        const svg = document.querySelector('.svg-flowchart');
+        const stepsGroup = document.getElementById('steps');
+        const arrowsGroup = document.getElementById('arrows');
+        const textsGroup = document.getElementById('texts');
+        const tooltip = document.getElementById('tooltip');
+
+        // Dimensões e posicionamento
+        const rectWidth = 120;
+        const rectHeight = 45;
+        const gap = 40;
+        const startX = 50;
+        const startY = 60;
+
+        // Criar elementos SVG
+        workflowSteps.forEach((step, index) => {
+            const x = startX + index * (rectWidth + gap);
+            
+            // Retângulo
+            const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+            rect.setAttribute('x', x);
+            rect.setAttribute('y', startY);
+            rect.setAttribute('width', rectWidth);
+            rect.setAttribute('height', rectHeight);
+            rect.setAttribute('rx', '8');
+            rect.setAttribute('class', 'flowchart-step');
+            rect.setAttribute('data-step', step.id);
+            stepsGroup.appendChild(rect);
+
+            // Texto
+            const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            text.setAttribute('x', x + rectWidth/2);
+            text.setAttribute('y', startY + rectHeight/2);
+            text.setAttribute('text-anchor', 'middle');
+            text.setAttribute('dominant-baseline', 'middle');
+            text.setAttribute('class', 'flowchart-text');
+            text.textContent = step.title;
+            textsGroup.appendChild(text);
+
+            // Seta
+            if (index < workflowSteps.length - 1) {
+                const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                const startArrowX = x + rectWidth;
+                const startArrowY = startY + rectHeight/2;
+                const endArrowX = startX + (index + 1) * (rectWidth + gap);
+                arrow.setAttribute('d', `M ${startArrowX} ${startArrowY} 
+                                      L ${startArrowX + gap/2} ${startArrowY}
+                                      L ${endArrowX - 10} ${startArrowY}`);
+                arrow.setAttribute('stroke', '#4a90e2');
+                arrow.setAttribute('stroke-width', '2');
+                arrow.setAttribute('fill', 'none');
+                arrow.setAttribute('marker-end', 'url(#arrowhead)');
+                arrowsGroup.appendChild(arrow);
+            }
+        });
+
+        // Adicionar marcador de seta
+        const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+        const marker = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
+        marker.setAttribute('id', 'arrowhead');
+        marker.setAttribute('markerWidth', '10');
+        marker.setAttribute('markerHeight', '7');
+        marker.setAttribute('refX', '9');
+        marker.setAttribute('refY', '3.5');
+        marker.setAttribute('orient', 'auto');
+
+        const polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+        polygon.setAttribute('points', '0 0, 10 3.5, 0 7');
+        polygon.setAttribute('fill', '#4a90e2');
+        
+        marker.appendChild(polygon);
+        defs.appendChild(marker);
+        svg.insertBefore(defs, svg.firstChild);
+
+        // Evento de tooltip
+        document.querySelectorAll('.flowchart-step').forEach(step => {
+            step.addEventListener('mouseover', (e) => {
+                const stepData = workflowSteps.find(s => s.id === step.dataset.step);
+                if (stepData) {
+                    tooltip.innerHTML = `
+                        <h4>${stepData.title}</h4>
+                        <div>
+                            <strong>Entregas:</strong>
+                            <ul>
+                                ${stepData.entregas.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                            <strong>Riscos:</strong>
+                            <ul>
+                                ${stepData.riscos.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                    tooltip.style.display = 'block';
+                    tooltip.style.left = `${e.pageX + 10}px`;
+                    tooltip.style.top = `${e.pageY + 10}px`;
+                }
+            });
+
+            step.addEventListener('mouseout', () => {
+                tooltip.style.display = 'none';
+            });
+
+            step.addEventListener('mousemove', (e) => {
+                tooltip.style.left = `${e.pageX + 10}px`;
+                tooltip.style.top = `${e.pageY + 10}px`;
+            });
+        });
+
+        // Ajustar viewBox do SVG para mostrar todo o conteúdo
+        const svgWidth = startX * 2 + workflowSteps.length * (rectWidth + gap);
+        svg.setAttribute('viewBox', `0 0 ${svgWidth} 200`);
+    </script>
 </body>
 </html>

@@ -3,13 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Web</title>
+    <meta name="description" content="Quiz de conhecimentos em desenvolvimento web">
+    <title>Quiz - Guia Web</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .question {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .option:hover {
+            background-color: #e9ecef;
+        }
+
+        .option input[type="radio"] {
+            margin-top: 0.3rem;
+        }
+
+        .option label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #357abd;
+        }
+
+        .result {
+            display: none;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .score {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .explanation {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #e3f2fd;
+            border-radius: 4px;
+        }
+
+        .high-score {
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #4a90e2;
+        }
+
+        .correct {
+            color: #28a745;
+        }
+
+        .incorrect {
+            color: #dc3545;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Quiz de Conhecimentos Web</h1>
-        <nav>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="Página Inicial do Guia Web">
+                <h1>Guia Web</h1>
+            </a>
+            
+            <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav id="main-nav" class="main-nav" aria-label="Menu principal">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="tecnologias.html">Tecnologias</a></li>
+                    <li><a href="boas-praticas.html">Boas Práticas</a></li>
+                    <li><a href="fluxo.html">Fluxo de Trabalho</a></li>
+                    <li><a href="quiz.html" aria-current="page">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="quiz-container">
+            <h2>Teste seus Conhecimentos em Desenvolvimento Web</h2>
+            <form id="quiz-form">
+                <div class="questions">
+                    <div class="question" data-question="1">
+                        <h3>1. Qual é a função principal do HTML em uma página web?</h3>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q1" id="q1a" value="a">
+                                <label for="q1a">Definir a estrutura e o conteúdo do documento</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q1" id="q1b" value="b">
+                                <label for="q1b">Controlar a aparência visual dos elementos</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q1" id="q1c" value="c">
+                                <label for="q1c">Adicionar interatividade à página</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q1" id="q1d" value="d">
+                                <label for="q1d">Gerenciar o banco de dados do site</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-question="2">
+                        <h3>2. Em CSS, qual é a diferença entre margin e padding?</h3>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q2" id="q2a" value="a">
+                                <label for="q2a">Não há diferença, são a mesma propriedade</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q2" id="q2b" value="b">
+                                <label for="q2b">Margin é o espaço interno e padding é o espaço externo</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q2" id="q2c" value="c">
+                                <label for="q2c">Margin é o espaço externo e padding é o espaço interno</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q2" id="q2d" value="d">
+                                <label for="q2d">Ambos são usados apenas para definir cores</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-question="3">
+                        <h3>3. Qual é a melhor prática para tornar um site responsivo?</h3>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q3" id="q3a" value="a">
+                                <label for="q3a">Criar diferentes arquivos HTML para cada tamanho de tela</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q3" id="q3b" value="b">
+                                <label for="q3b">Usar Media Queries e unidades flexíveis como % e rem</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q3" id="q3c" value="c">
+                                <label for="q3c">Definir todas as dimensões em pixels fixos</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q3" id="q3d" value="d">
+                                <label for="q3d">Evitar o uso de CSS</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-question="4">
+                        <h3>4. O que é o DOM em JavaScript?</h3>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q4" id="q4a" value="a">
+                                <label for="q4a">Um método para definir variáveis</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q4" id="q4b" value="b">
+                                <label for="q4b">Uma linguagem de programação</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q4" id="q4c" value="c">
+                                <label for="q4c">A representação da estrutura do documento como uma árvore de objetos</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q4" id="q4d" value="d">
+                                <label for="q4d">Um framework JavaScript</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-question="5">
+                        <h3>5. Qual é a importância do versionamento de código?</h3>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q5" id="q5a" value="a">
+                                <label for="q5a">Apenas para fazer backup do código</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q5" id="q5b" value="b">
+                                <label for="q5b">Controlar mudanças, colaborar e manter histórico do desenvolvimento</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q5" id="q5c" value="c">
+                                <label for="q5c">Tornar o código mais rápido</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q5" id="q5d" value="d">
+                                <label for="q5d">Apenas para projetos grandes</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-question="6">
+                        <h3>6. Por que é importante a acessibilidade web?</h3>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q6" id="q6a" value="a">
+                                <label for="q6a">Apenas para cumprir requisitos legais</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q6" id="q6b" value="b">
+                                <label for="q6b">Só é importante para usuários com deficiência visual</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q6" id="q6c" value="c">
+                                <label for="q6c">Garantir que todos os usuários possam acessar e interagir com o conteúdo</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q6" id="q6d" value="d">
+                                <label for="q6d">Apenas para melhorar o SEO</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-question="7">
+                        <h3>7. Qual é a melhor prática para otimizar o carregamento de imagens?</h3>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q7" id="q7a" value="a">
+                                <label for="q7a">Usar sempre o formato PNG para todas as imagens</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q7" id="q7b" value="b">
+                                <label for="q7b">Comprimir, usar formatos apropriados e lazy loading</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q7" id="q7c" value="c">
+                                <label for="q7c">Evitar o uso de imagens completamente</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q7" id="q7d" value="d">
+                                <label for="q7d">Usar sempre a maior resolução possível</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question" data-question="8">
+                        <h3>8. O que é uma API REST?</h3>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q8" id="q8a" value="a">
+                                <label for="q8a">Um tipo de banco de dados</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q8" id="q8b" value="b">
+                                <label for="q8b">Uma linguagem de programação</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q8" id="q8c" value="c">
+                                <label for="q8c">Um conjunto de princípios para comunicação cliente-servidor via HTTP</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q8" id="q8d" value="d">
+                                <label for="q8d">Um framework JavaScript</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Verificar Respostas</button>
+            </form>
+
+            <div id="result" class="result">
+                <div class="score">
+                    Sua pontuação: <span id="score">0</span>/8
+                </div>
+                <div id="explanations"></div>
+                <div class="high-score">
+                    Melhor pontuação: <span id="high-score">0</span>/8
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <nav class="footer-nav" aria-label="Menu do rodapé">
             <ul>
                 <li><a href="index.html">Início</a></li>
                 <li><a href="tecnologias.html">Tecnologias</a></li>
@@ -18,16 +349,9 @@
                 <li><a href="quiz.html">Quiz</a></li>
             </ul>
         </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Quiz</h2>
-            <!-- Conteúdo do quiz aqui -->
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Guia Web</p>
+        <p class="credits">&copy; 2025 Guia Web. Desenvolvido por Maria Fernanda.</p>
     </footer>
+
     <script src="js/app.js"></script>
 </body>
 </html>
